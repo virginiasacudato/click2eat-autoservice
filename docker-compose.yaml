@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  app:
+    container_name: dev-nextjs-restaurant
+    image: local-nextjs-restaurant:dev
+    entrypoint: [ "sh", "-c","npm install && npm run dev" ]
+    build:
+      dockerfile: Dockerfile
+      target: builder
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
+    command: npm run dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
