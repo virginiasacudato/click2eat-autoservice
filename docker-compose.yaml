@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   app:
-    container_name: dev-nextjs-restaurant
+    container_name: dev-click2eat-autoservice
     image: local-nextjs-restaurant:dev
     entrypoint: [ "sh", "-c","npm install && npm run dev" ]
     build:
