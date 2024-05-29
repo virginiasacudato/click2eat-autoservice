@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  app:
+    build:
+      dockerfile: docker/app/app.dockerfile
+      context: .
+      target: runner
+    container_name: prod-click2eat-autoservice
+    volumes:
+      - /app
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
